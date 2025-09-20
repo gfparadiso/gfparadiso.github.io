@@ -43,3 +43,53 @@ margin-right: 10px;
 img.dibley {
     max-width: 100%
 }
+/* Grid wrapper */
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+/* Box styling */
+.wrapper div {
+  padding: 20px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Positioning each box */
+.box1 {
+  grid-column: 1 / 5;  /* full width top row */
+  background-color: #a05252;
+}
+
+.box2 {
+  grid-column: 1 / 2;  /* left column */
+  grid-row: 2 / 4;     /* spans two rows */
+  background-color: #f6e5a0;
+}
+
+.box3 {
+  grid-column: 2 / 5;  /* right side, next to box2 */
+  background-color: #9ac7a2;
+}
+
+.box4 {
+  grid-column: 2 / 3;  /* bottom left (next to box2) */
+  background-color: #b0d5f9;
+}
+
+.box5 {
+  grid-column: 3 / 5;  /* bottom right */
+  background-color: #6a65d8;
+  color: white;
+}
+
+.box6 {
+  grid-column: 1 / 5;  /* full width bottom */
+  background-color: #e689d1;
+}
