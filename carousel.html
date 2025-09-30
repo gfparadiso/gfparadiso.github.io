@@ -1,111 +1,105 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Carousel: Gianni Paradiso</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="css/styles.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carousel: Gianni Paradiso</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Your stylesheet AFTER Bootstrap -->
+  <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
     <a class="navbar-brand" href="#">Gianni Paradiso</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+
+    <!-- BS5 data attributes -->
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="grid.html">Grid</a>
-            </li>
-             <li class="nav-item">
-                <a class="nav-link" href="carousel.html">Carousel</a>
-            </li>
-        </ul>
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="grid.html">Grid</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="carousel.html">Carousel</a></li>
+      </ul>
     </div>
+  </div>
 </nav>
 
-<main role="main" class="container-fluid">
-    <h2>Carousel</h2>
-<section class="container my-5">
-  <h2 class="mb-3">Featured Work</h2>
+<main role="main" class="container-fluid" style="padding-top:4.5rem;">
+  <section class="container my-5">
+    <h2 class="mb-3">Featured Work</h2>
 
-  <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
-    <!-- Indicators -->
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+
+      <!-- Slides -->
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active" data-bs-interval="5000">
+          <img src="images/Montserrat.jpg" class="d-block w-100" alt="Poster exploring the Montserrat typeface and its anatomy">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Project One</h5>
+            <p>Type study on Montserrat created at CCV.</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="images/Cheney.jpg" class="d-block w-100" alt="Satirical 90s hip-hop style artwork featuring Dick Cheney">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Project Two</h5>
+            <p>April Fools’ spoof: Cheney as a ’90s hip-hop artist.</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" data-bs-interval="5000">
+          <!-- Avoid spaces in filenames; either rename to Yard-Sale.jpg or URL-encode as Yard%20Sale.jpg -->
+          <img src="images/Yard-Sale.jpg" class="d-block w-100" alt="Graphic yard sale flyer with bold pricing and icons">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Project Three</h5>
+            <p>Yard sale flyer designed for a graphic design class.</p>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="images/Eye-of-Cheney.jpg" class="d-block w-100" alt="Parody illustration of the Eye of Sauron reimagined as Cheney">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Project Four</h5>
+            <p>April Fools’ parody: the Eye of Cheney.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+  </section>
+</main>
 
-    <!-- Slides -->
-    <div class="carousel-inner">
-      <!-- Slide 1 -->
-      <div class="carousel-item active" data-bs-interval="5000">
-        <img src="images/Montserrat.jpg" class="d-block w-100" alt="Describe image 1 clearly for accessibility">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Project One</h5>
-          <p>This is a project I made at CCV about the font Montserrat.</p>
-        </div>
-      </div>
-      <!-- Slide 2 -->
-      <div class="carousel-item" data-bs-interval="5000">
-        <img src="images/Cheney.jpg" class="d-block w-100" alt="Describe image 2 clearly for accessibility">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Project Two</h5>
-          <p>This was another April Fools project I made to look like Dick Cheney was a '90s hip-hop artist.</p>
-        </div>
-      </div>
-      <!-- Slide 3 -->
-      <div class="carousel-item" data-bs-interval="5000">
-        <img src="images/Yard Sale.jpg" class="d-block w-100" alt="Describe image 3 clearly for accessibility">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Project Three</h5>
-          <p>This was a yard sale flyer I made for a graphic design class.</p>
-        </div>
-      </div>
-      <!-- Slide 4 -->
-      <div class="carousel-item" data-bs-interval="5000">
-        <img src="images/Eye of Cheney.jpg" class="d-block w-100" alt="Describe image 4 clearly for accessibility">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Project Four</h5>
-          <p>And finally, a project I also made on April Fools of Dick Cheney as the Eye of Sauron.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-
-    <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</section>
-
-
-</main><!-- /.container -->
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<!-- BS5 bundle only (includes Popper). Remove jQuery/old Popper and duplicate bundles. -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
