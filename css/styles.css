@@ -93,13 +93,18 @@ img.dibley {
   grid-column: 1 / 5;  /* full width bottom */
   background-color: #e689d1;
 }
-/* Make all carousel images the same height and nicely cropped */
+
+/* Consistent slide height and clean cropping */
 #portfolioCarousel .carousel-item img {
-  height: 480px;        /* adjust to taste: 360–600px */
-  object-fit: cover;    /* fill without distortion, crop edges */
+  height: 520px;      /* adjust 360–640px to taste */
+  object-fit: cover;  /* fills frame without distortion */
 }
 
-/* Slight backdrop for captions for readability over bright images */
+/* Improve caption readability */
 #portfolioCarousel .carousel-caption {
-  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
 }
+
+/* Nudge content below fixed-top navbar if you move inline padding */
+main { padding-top: 4.5rem; }
+
