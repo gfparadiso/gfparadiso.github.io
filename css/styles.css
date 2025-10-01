@@ -1,49 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&display=swap');
 
-
-/*GLOBAL*/
-body {
-    padding-top: 5rem;
-
-}
+/* ========== GLOBAL ========== */
+body { padding-top: 5rem; }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: 'Playfair Display', serif;
-}
-
-
-main {
-    padding: 20px;
-}
-main.container-fluid {
-    width: 50%;
+  font-family: 'Playfair Display', serif;
 }
 
 p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.6rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.6rem;
 }
 
-nav {
-    margin-bottom: 120px;
+/* Unified layout spacing below fixed-top navbar */
+main {
+  padding: 20px;
+  padding-top: 4.5rem; /* offset for fixed navbar */
 }
 
-.navbar-brand {
-    margin-left: 20px;
-}
+/* Remove this — it was constraining every page to half width */
+/* main.container-fluid { width: 50%; } */
 
-button.navbar-toggler{
-margin-right: 10px;
-}
+/* Don’t push extra space from the nav; the fixed-top + main padding covers it */
+nav { margin-bottom: 0; }
 
-.home_2col {
-    margin-bottom: 20px;
-}
+.navbar-brand { margin-left: 20px; }
+button.navbar-toggler { margin-right: 10px; }
 
-img.dibley {
-    max-width: 100%
-}
-/* Grid wrapper */
+.home_2col { margin-bottom: 20px; }
+img.dibley { max-width: 100% }
+
+/* ========== GRID PAGE ========== */
 .wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -51,8 +38,6 @@ img.dibley {
   gap: 10px;
   margin-top: 2rem;
 }
-
-/* Box styling */
 .wrapper div {
   padding: 20px;
   color: #000;
@@ -60,51 +45,33 @@ img.dibley {
   text-align: center;
   border-radius: 5px;
 }
+.box1 { grid-column: 1 / 5; background-color: #a05252; }
+.box2 { grid-column: 1 / 2; grid-row: 2 / 4; background-color: #f6e5a0; }
+.box3 { grid-column: 2 / 5; background-color: #9ac7a2; }
+.box4 { grid-column: 2 / 3; background-color: #b0d5f9; }
+.box5 { grid-column: 3 / 5; background-color: #6a65d8; color: white; }
+.box6 { grid-column: 1 / 5; background-color: #e689d1; }
 
-/* Positioning each box */
-.box1 {
-  grid-column: 1 / 5;  /* full width top row */
-  background-color: #a05252;
-}
-
-.box2 {
-  grid-column: 1 / 2;  /* left column */
-  grid-row: 2 / 4;     /* spans two rows */
-  background-color: #f6e5a0;
-}
-
-.box3 {
-  grid-column: 2 / 5;  /* right side, next to box2 */
-  background-color: #9ac7a2;
-}
-
-.box4 {
-  grid-column: 2 / 3;  /* bottom left (next to box2) */
-  background-color: #b0d5f9;
-}
-
-.box5 {
-  grid-column: 3 / 5;  /* bottom right */
-  background-color: #6a65d8;
-  color: white;
-}
-
-.box6 {
-  grid-column: 1 / 5;  /* full width bottom */
-  background-color: #e689d1;
-}
-
-/* Consistent slide height and clean cropping */
+/* ========== CAROUSEL PAGE ========== */
 #portfolioCarousel .carousel-item img {
-  height: 520px;      /* adjust 360–640px to taste */
-  object-fit: cover;  /* fills frame without distortion */
+  height: 520px;        /* adjust to taste */
+  object-fit: cover;    /* crop edges, no distortion */
 }
-
-/* Improve caption readability */
 #portfolioCarousel .carousel-caption {
   text-shadow: 0 1px 2px rgba(0,0,0,.6);
 }
 
-/* Nudge content below fixed-top navbar if you move inline padding */
-main { padding-top: 4.5rem; }
+/* Optional: narrow view grid tweak */
+@media (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 140px;
+  }
+  .box1 { grid-column: 1 / -1; }
+  .box2 { grid-column: 1 / 2; grid-row: auto / span 2; }
+  .box3 { grid-column: 2 / -1; }
+  .box4 { grid-column: 1 / 2; }
+  .box5 { grid-column: 2 / -1; }
+  .box6 { grid-column: 1 / -1; }
+}
 
