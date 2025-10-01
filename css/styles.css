@@ -3,7 +3,7 @@
 /* ========== GLOBAL ========== */
 body { padding-top: 5rem; }
 
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
 }
 
@@ -18,19 +18,14 @@ main {
   padding-top: 4.5rem; /* offset for fixed navbar */
 }
 
-/* Remove this — it was constraining every page to half width */
-/* main.container-fluid { width: 50%; } */
-
-/* Don’t push extra space from the nav; the fixed-top + main padding covers it */
-.navbar-nav .nav-link { outline: 1px dashed rgba(255,255,255,.4); }
-
+/* Do not push extra space from the nav; fixed-top + main padding covers it */
 nav { margin-bottom: 0; }
 
 .navbar-brand { margin-left: 20px; }
 button.navbar-toggler { margin-right: 10px; }
 
 .home_2col { margin-bottom: 20px; }
-img.dibley { max-width: 100% }
+img.dibley { max-width: 100%; }
 
 /* ========== GRID PAGE ========== */
 .wrapper {
@@ -51,28 +46,63 @@ img.dibley { max-width: 100% }
 .box2 { grid-column: 1 / 2; grid-row: 2 / 4; background-color: #f6e5a0; }
 .box3 { grid-column: 2 / 5; background-color: #9ac7a2; }
 .box4 { grid-column: 2 / 3; background-color: #b0d5f9; }
-.box5 { grid-column: 3 / 5; background-color: #6a65d8; color: white; }
+.box5 { grid-column: 3 / 5; background-color: #6a65d8; color: #fff; }
 .box6 { grid-column: 1 / 5; background-color: #e689d1; }
 
 /* ========== CAROUSEL PAGE ========== */
-#portfolioCarousel .carousel-item img {
-  height: 520px;        /* adjust to taste */
-  object-fit: cover;    /* crop edges, no distortion */
-}
-#portfolioCarousel .carousel-caption {
-  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+
+/* Neutral backdrop (optional) */
+#portfolioCarousel { background: #000; }
+
+/* Hide non-active slides by default */
+.carousel-item {
+  display: none;
+  position: relative;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-/* Optional: narrow view grid tweak */
-@media (max-width: 768px) {
-  .wrapper {
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 140px;
-  }
-  .box1 { grid-column: 1 / -1; }
-  .box2 { grid-column: 1 / 2; grid-row: auto / span 2; }
-  .box3 { grid-column: 2 / -1; }
-  .box4 { grid-column: 1 / 2; }
-  .box5 { grid-column: 2 / -1; }
-  .box6 { grid-column: 1 / -1; }
+/* Only these are visible */
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block; /* Bootstrap expects visible during transition */
+}
+
+/* Frame height */
+#portfolioCarousel .carousel-item {
+  height: 70vh;                /* adjust 60–80vh if you want */
+}
+
+/* Center contents ONLY when visible */
+#portfolioCarousel .carousel-item.active,
+#portfolioCarousel .carousel-item-next,
+#portfolioCarousel .carousel-item-prev {
+  display: flex;               /* turn flex on for visible slides */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Show the whole image; no cropping */
+#portfolioCarousel .carousel-item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Caption below image */
+.carousel-text-below {
+  text-align: center;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  color: #000;
+}
+
+/* Arrow color (black instead of white) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1) grayscale(100);
 }
