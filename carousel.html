@@ -26,7 +26,7 @@
       <ul class="navbar-nav me-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="grid.html">Grid</a></li>
-        <li class="nav-item"><a class="nav-link" href="carousel.html">Carousel</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="carousel.html">Carousel</a></li>
       </ul>
     </div>
   </div>
@@ -45,12 +45,12 @@
         <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
       </div>
 
-      <!-- Slides -->
+      <!-- Slides WRAPPER (this was missing) -->
       <div class="carousel-inner">
         <!-- Slide 1 -->
         <div class="carousel-item active" data-bs-interval="5000">
-          <img src="images/Montserrat.jpg" class="d-block w-100" alt="Poster exploring the Montserrat typeface and its anatomy">
-          <div class="carousel-caption d-none d-md-block">
+          <img src="images/Montserrat.jpg" class="d-block" alt="Poster exploring the Montserrat typeface and its anatomy">
+          <div class="carousel-text-below">
             <h5>Project One</h5>
             <p>Type study on Montserrat created at CCV.</p>
           </div>
@@ -58,8 +58,8 @@
 
         <!-- Slide 2 -->
         <div class="carousel-item" data-bs-interval="5000">
-          <img src="images/Cheney.jpg" class="d-block w-100" alt="Satirical 90s hip-hop style artwork featuring Dick Cheney">
-          <div class="carousel-caption d-none d-md-block">
+          <img src="images/Cheney.jpg" class="d-block" alt="Satirical 90s hip-hop style artwork featuring Dick Cheney">
+          <div class="carousel-text-below">
             <h5>Project Two</h5>
             <p>April Fools’ spoof: Cheney as a ’90s hip-hop artist.</p>
           </div>
@@ -67,9 +67,8 @@
 
         <!-- Slide 3 -->
         <div class="carousel-item" data-bs-interval="5000">
-          <!-- Avoid spaces in filenames; either rename to Yard-Sale.jpg or URL-encode as Yard%20Sale.jpg -->
-          <img src="images/Yard-Sale.jpg" class="d-block w-100" alt="Graphic yard sale flyer with bold pricing and icons">
-          <div class="carousel-caption d-none d-md-block">
+          <img src="images/Yard-Sale.jpg" class="d-block" alt="Graphic yard sale flyer with bold pricing and icons">
+          <div class="carousel-text-below">
             <h5>Project Three</h5>
             <p>Yard sale flyer designed for a graphic design class.</p>
           </div>
@@ -77,8 +76,8 @@
 
         <!-- Slide 4 -->
         <div class="carousel-item" data-bs-interval="5000">
-          <img src="images/Eye-of-Cheney.jpg" class="d-block w-100" alt="Parody illustration of the Eye of Sauron reimagined as Cheney">
-          <div class="carousel-caption d-none d-md-block">
+          <img src="images/Eye-of-Cheney.jpg" class="d-block" alt="Parody illustration of the Eye of Sauron reimagined as Cheney">
+          <div class="carousel-text-below">
             <h5>Project Four</h5>
             <p>April Fools’ parody: the Eye of Cheney.</p>
           </div>
@@ -98,7 +97,7 @@
   </section>
 </main>
 
-<!-- BS5 bundle only (includes Popper). Remove jQuery/old Popper and duplicate bundles. -->
+<!-- BS5 bundle only -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
