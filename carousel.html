@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carousel: Gianni Paradiso</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Your stylesheet AFTER Bootstrap -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Gianni Paradiso</a>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="grid.html">Grid</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="carousel.html">Carousel</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main role="main" class="container-fluid" style="padding-top:4.5rem;">
+  <section class="container my-5">
+    <h2 class="mb-3">Featured Work</h2>
+
+    <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+
+      <!-- Slides WRAPPER (this was missing) -->
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active" data-bs-interval="5000">
+          <img src="images/Montserrat.jpg" class="d-block" alt="Poster exploring the Montserrat typeface and its anatomy">
+          <div class="carousel-text-below">
+            <h5>Project One</h5>
+            <p>Type study on Montserrat created at CCV.</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="images/Cheney.jpg" class="d-block" alt="Satirical 90s hip-hop style artwork featuring Dick Cheney">
+          <div class="carousel-text-below">
+            <h5>Project Two</h5>
+            <p>April Fools’ spoof: Cheney as a ’90s hip-hop artist.</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="images/Yard-Sale.jpg" class="d-block" alt="Graphic yard sale flyer with bold pricing and icons">
+          <div class="carousel-text-below">
+            <h5>Project Three</h5>
+            <p>Yard sale flyer designed for a graphic design class.</p>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="images/Eye-of-Cheney.jpg" class="d-block" alt="Parody illustration of the Eye of Sauron reimagined as Cheney">
+          <div class="carousel-text-below">
+            <h5>Project Four</h5>
+            <p>April Fools’ parody: the Eye of Cheney.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+</main>
+
+<!-- BS5 bundle only -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
