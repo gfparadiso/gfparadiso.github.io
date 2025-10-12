@@ -58,6 +58,40 @@
 
         // Step 2: Render the React element
 
+        <script>
+  // Fill in your details
+  const user = {
+    name: 'Gianni Paradiso',
+    imageUrl: 'images/about-portrait-200.jpg',   // <-- 200x200 image you saved
+    bio: 'Write a short paragraph about yourself here. Mention what you’re studying, interests, tools you like, and what you’re aiming to build next.'
+  };
+
+  // Step 1 — Create React elements (no JSX)
+  const h1El = React.createElement('h1', null, `About ${user.name}`);
+
+  const imgEl = React.createElement('img', {
+    src: user.imageUrl,
+    alt: `${user.name} portrait`,
+    width: 200,
+    height: 200,
+    style: {
+      float: 'left',
+      marginRight: '12px',
+      marginBottom: '8px',
+      borderRadius: '4px',
+      objectFit: 'cover'
+    }
+  });
+
+  const pEl = React.createElement('p', null, user.bio);
+
+  // Step 2 — Render into the target divs
+  ReactDOM.render(h1El, document.getElementById('h1'));
+  ReactDOM.render(imgEl, document.getElementById('img'));
+  ReactDOM.render(pEl, document.getElementById('content'));
+</script>
+
+
     </script>
 
 </main><!-- /.container -->
