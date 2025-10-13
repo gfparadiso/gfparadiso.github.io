@@ -1,98 +1,82 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Paradiso, Gianni: 225</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
-    <!-- Bootstrap core CSS -->
-    <link href="css/styles.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Paradiso, Gianni: 225</title>
 
-    <!-- Custom styles for this template -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Your CSS after Bootstrap so overrides win -->
+  <link href="css/styles.css" rel="stylesheet">
+
+  <!-- React 17 UMD -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
     <a class="navbar-brand" href="#">Paradiso, Gianni</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="grid.html">Grid</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="components.html">Carousel</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-            </li>
-        </ul>
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="grid.html">Grid</a></li>
+        <li class="nav-item"><a class="nav-link" href="components.html">Carousel</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
+      </ul>
     </div>
+  </div>
 </nav>
 
-<main role="main" class="container-fluid">
-    <div id="h1"></div>
-    <div id="img"></div>
-    <div id="content"></div>
+<main role="main" class="container-fluid" style="padding-top:4.5rem;">
+  <div id="h1"></div>
+  <div id="img"></div>
+  <div id="content"></div>
 
-    <script>
+  <script>
+    // Fill in your details (make sure the image exists at this path)
+    const user = {
+      name: 'Gianni Paradiso',
+      imageUrl: 'images/about-portrait-200.jpg',
+      bio: "I’m currently studying Web Development at Champlain College, focusing on design, coding, and user experience. I enjoy combining creativity and logic to build clean, functional, and visually interesting projects. My favorite tools include Adobe Creative Suite, Figma, and Procreate, which I use for both design and illustration work. Right now, I’m working on expanding my portfolio website and plan to build a full brand identity system that blends modern design with classic craftsmanship."
+    };
 
-  const user = {
-    name: 'Gianni Paradiso',
-    imageUrl: 'images/about-portrait-200.jpg'
-    bio: bio: "I’m currently studying Web Development at Champlain College, focusing on design, coding, and user experience. I enjoy combining creativity and logic to build clean, functional, and visually interesting projects. My favorite tools include Adobe Creative Suite, Figma, and Procreate, which I use for both design and illustration work. Right now, I’m working on expanding my portfolio website and plan to build a full brand identity system that blends modern design with classic craftsmanship."
+    // React elements (no JSX)
+    const h1El = React.createElement('h1', null, `About ${user.name}`);
 
-  };
+    const imgEl = React.createElement('img', {
+      src: user.imageUrl,
+      alt: `${user.name} portrait`,
+      width: 200,
+      height: 200,
+      style: {
+        float: 'left',
+        marginRight: '12px',
+        marginBottom: '8px',
+        borderRadius: '4px',
+        objectFit: 'cover'
+      }
+    });
 
-  // Step 1 — Create React elements (no JSX)
-  const h1El = React.createElement('h1', null, `About ${user.name}`);
+    const pEl = React.createElement('p', null, user.bio);
 
-  const imgEl = React.createElement('img', {
-    src: user.imageUrl,
-    alt: `${user.name} portrait`,
-    width: 200,
-    height: 200,
-    style: {
-      float: 'left',
-      marginRight: '12px',
-      marginBottom: '8px',
-      borderRadius: '4px',
-      objectFit: 'cover'
-    }
-  });
+    // Mount
+    ReactDOM.render(h1El, document.getElementById('h1'));
+    ReactDOM.render(imgEl, document.getElementById('img'));
+    ReactDOM.render(pEl, document.getElementById('content'));
+  </script>
+</main>
 
-  const pEl = React.createElement('p', null, user.bio);
-
-  // Step 2 — Render into the target divs
-  ReactDOM.render(h1El, document.getElementById('h1'));
-  ReactDOM.render(imgEl, document.getElementById('img'));
-  ReactDOM.render(pEl, document.getElementById('content'));
-</script>
-
-
-    </script>
-
-</main><!-- /.container -->
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+<!-- Bootstrap 5 bundle (no jQuery needed) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
