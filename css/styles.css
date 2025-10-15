@@ -106,3 +106,9 @@ img.dibley { max-width: 100%; }
 .carousel-control-next-icon {
   filter: invert(1) grayscale(100);
 }
+
+/* Keep main content narrow and centered */
+main.container-fluid { max-width: 820px; }
+
+/* Clear the floated image after the paragraph block */
+#content::after { content: ""; display: table; clear: both; }
