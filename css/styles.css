@@ -1,53 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap');
-
-/* ---------- Base / Global ---------- */
+/* ---------- Global: fluid type + image scaling + layout ---------- */
 :root{
-  --text: #111;
-  --muted: #6c757d;
-  --bg: #fff;
-  --brand: #0d6efd;
   --container-max: 960px;
-}
-
-html { scroll-behavior: smooth; }
-body {
-  color: var(--text);
-  background: var(--bg);
-  font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 /* push content below fixed-top navbar */
 main { padding-top: 4.5rem; }
 
-/* Restrict overly-wide pages while keeping Bootstrap grid */
+/* keep pages from getting too wide while keeping Bootstrap grid */
 .container,
 .container-fluid { max-width: var(--container-max); }
 
-/* Type scale (fluid) */
+/* Fluid type scale */
 h1, .page-title { 
   font-family: 'Playfair Display', serif; 
   font-weight: 600;
   font-size: clamp(1.75rem, 1.3rem + 2.2vw, 2.25rem);
 }
-h2, .h2 { font-family: 'Playfair Display', serif; font-weight: 600; }
-p { font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem); line-height: 1.6; }
+h2 { font-family: 'Playfair Display', serif; font-weight: 600; font-size: clamp(1.25rem, 1.05rem + 1.2vw, 1.75rem); }
+p  { font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem); line-height: 1.6; }
 
-/* Skip link for a11y */
-.skip-link {
-  position: absolute; left: -9999px; top: 0; z-index: 1000;
-  background: #000; color: #fff; padding: .5rem .75rem; border-radius: .25rem;
-}
-.skip-link:focus { left: .5rem; top: .5rem; }
+/* Images scale responsively everywhere */
+img { max-width: 100%; height: auto; }
 
-/* Navbar spacing cleanup */
-.navbar-brand { font-weight: 600; }
-.navbar .nav-link.active[aria-current="page"] { color: #fff; text-decoration: underline; text-underline-offset: .25rem; }
-
-/* Footer */
-.site-footer { border-top: 1px solid #e9ecef; }
-.site-footer a { color: var(--brand); }
-
-/* ---------- Grid page ---------- */
+/* ---------- Grid page: 4 → 3 → 1 columns ---------- */
 .wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -61,59 +36,65 @@ p { font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem); line-height: 1.6; }
   text-align: center;
   border-radius: 6px;
 }
-.box1 { grid-column: 1 / 5; background: #a05252; color:#fff; }
-.box2 { grid-column: 1 / 2; grid-row: span 2; background: #f6e5a0; }
-.box3 { grid-column: 2 / 5; background: #9ac7a2; }
-.box4 { grid-column: 2 / 3; background: #b0d5f9; }
-.box5 { grid-column: 3 / 5; background: #6a65d8; color: #fff; }
-.box6 { grid-column: 1 / 5; background: #e689d1; }
 
-/* Responsive grid breakpoints */
+/* your existing box colors keep working */
+.box1 { grid-column: 1 / 5; }
+.box2 { grid-column: 1 / 2; grid-row: span 2; }
+.box3 { grid-column: 2 / 5; }
+.box4 { grid-column: 2 / 3; }
+.box5 { grid-column: 3 / 5; }
+.box6 { grid-column: 1 / 5; }
+
+/* 4 → 3 columns on tablets */
 @media (max-width: 991.98px){
   .wrapper { grid-template-columns: repeat(3, 1fr); }
   .box1, .box6 { grid-column: 1 / -1; }
   .box3 { grid-column: 2 / -1; }
   .box5 { grid-column: 2 / -1; }
 }
+
+/* 3 → 1 column on phones */
 @media (max-width: 575.98px){
   .wrapper { grid-template-columns: 1fr; }
   .wrapper > div { grid-column: 1 / -1 !important; }
 }
 
-/* ---------- Carousel page ---------- */
+/* ---------- Carousel: 70vh frame + contain (no cropping) ---------- */
 #portfolioCarousel { background:#000; border-radius: .5rem; overflow: hidden; }
+
+/* hide non-active slides; show only active/transitioning */
 .carousel-item { display: none; position: relative; transition: transform .6s ease, opacity .6s ease; }
 .carousel-item.active,
 .carousel-item-next,
 .carousel-item-prev { display: block; }
 
-#portfolioCarousel .carousel-item { height: 70vh; } /* consistent frame */
+/* fixed frame height; center contents when visible */
+#portfolioCarousel .carousel-item { height: 70vh; }
 #portfolioCarousel .carousel-item.active,
 #portfolioCarousel .carousel-item-next,
 #portfolioCarousel .carousel-item-prev {
   display: flex; align-items: center; justify-content: center;
 }
+
+/* show full image, never crop */
 #portfolioCarousel .carousel-item img {
-  max-width: 100%; max-height: 100%;
-  width: auto; height: auto; object-fit: contain; display: block; margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
+
+/* captions below image */
 .carousel-text-below {
   text-align: center; padding: .75rem 1rem; background: #f8f9fa; color:#000;
 }
 
-/* Colored arrows (black instead of white) */
-.carousel-control-prev-icon, .carousel-control-next-icon {
-  filter: invert(1) grayscale(100);
-}
+/* darker arrow icons (white → black) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon { filter: invert(1) grayscale(100); }
 
-/* ---------- About page image float fix ---------- */
+/* ---------- About page float clear ---------- */
 #content::after { content:""; display:block; clear: both; }
-
-/* ---------- Small UX niceties ---------- */
-img { max-width: 100%; height: auto; }
-
-/* ---------- Print basics ---------- */
-@media print {
-  nav, .navbar, .site-footer { display: none !important; }
-  main { padding-top: 0; }
-}
