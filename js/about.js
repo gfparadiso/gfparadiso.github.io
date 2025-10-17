@@ -22,3 +22,7 @@
   ReactDOM.render(imgEl, document.getElementById('img'));
   ReactDOM.render(pEl, document.getElementById('content'));
 })();
+<!-- React 17 UMD -->
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="js/about.js"></script>
