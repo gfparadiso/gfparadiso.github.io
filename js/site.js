@@ -16,3 +16,19 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     el.style.animation = 'none';
   });
 }
+// Footer year
+document.addEventListener('DOMContentLoaded', () => {
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Collapse navbar after click on mobile
+  const nav = document.getElementById('navbarsExampleDefault') || document.getElementById('siteNav');
+  if (nav) {
+    nav.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const bsCollapse = bootstrap.Collapse.getInstance(nav);
+        if (bsCollapse) bsCollapse.hide();
+      });
+    });
+  }
+});
