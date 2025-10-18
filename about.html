@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Paradiso, Gianni: 225</title>
-
+  <link rel="icon" href="images/favicon.png" type="image/png+xml">
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Your CSS after Bootstrap so overrides win -->
@@ -28,10 +28,11 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav me-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         <li class="nav-item"><a class="nav-link" href="grid.html">Grid</a></li>
         <li class="nav-item"><a class="nav-link" href="carousel.html">Carousel</a></li>
         <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
+         <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
       </ul>
     </div>
   </div>
@@ -42,41 +43,17 @@
   <div id="img"></div>
   <div id="content"></div>
 
-  <script>
-    // Fill in your details (make sure the image exists at this path)
-    const user = {
-      name: 'Gianni Paradiso',
-      imageUrl: 'images/about-portrait-200.jpg',
-      bio: "I’m currently studying Web Development at Champlain College, focusing on design, coding, and user experience. I enjoy combining creativity and logic to build clean, functional, and visually interesting projects. My favorite tools include Adobe Creative Suite, Figma, and Procreate, which I use for both design and illustration work. Right now, I’m working on expanding my portfolio website and plan to build a full brand identity system that blends modern design with classic craftsmanship."
-    };
-
-    // React elements (no JSX)
-    const h1El = React.createElement('h1', null, `About ${user.name}`);
-
-    const imgEl = React.createElement('img', {
-      src: user.imageUrl,
-      alt: `${user.name} portrait`,
-      width: 200,
-      height: 270,
-      style: {
-        float: 'left',
-        marginRight: '12px',
-        marginBottom: '8px',
-        borderRadius: '4px',
-        objectFit: 'cover'
-      }
-    });
-
-    const pEl = React.createElement('p', null, user.bio);
-
-    // Mount
-    ReactDOM.render(h1El, document.getElementById('h1'));
-    ReactDOM.render(imgEl, document.getElementById('img'));
-    ReactDOM.render(pEl, document.getElementById('content'));
-  </script>
 </main>
+  
+<footer class="site-footer">
+  <div class="container py-4 small">
+    <p class="mb-0">© <span id="year"></span> Gianni Paradiso · <a href="contact.html">Contact</a></p>
+  </div>
+</footer>
 
 <!-- Bootstrap 5 bundle (no jQuery needed) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/site.js"></script>
+
 </body>
 </html>

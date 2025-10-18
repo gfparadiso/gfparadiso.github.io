@@ -1,88 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&display=swap');
-
-/* ========== GLOBAL ========== */
-body { padding-top: 5rem; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
+/* ---------- Global: fluid type + image scaling + layout ---------- */
+:root{
+  --container-max: 960px;
 }
 
-p {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.6rem;
+/* push content below fixed-top navbar */
+main { padding-top: 4.5rem; }
+
+/* keep pages from getting too wide while keeping Bootstrap grid */
+.container,
+.container-fluid { max-width: var(--container-max); }
+
+/* Fluid type scale */
+h1, .page-title { 
+  font-family: 'Playfair Display', serif; 
+  font-weight: 600;
+  font-size: clamp(1.75rem, 1.3rem + 2.2vw, 2.25rem);
 }
+h2 { font-family: 'Playfair Display', serif; font-weight: 600; font-size: clamp(1.25rem, 1.05rem + 1.2vw, 1.75rem); }
+p  { font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem); line-height: 1.6; }
 
-/* Unified layout spacing below fixed-top navbar */
-main {
-  padding: 20px;
-  padding-top: 4.5rem; /* offset for fixed navbar */
-}
+/* Images scale responsively everywhere */
+img { max-width: 100%; height: auto; }
 
-/* Do not push extra space from the nav; fixed-top + main padding covers it */
-nav { margin-bottom: 0; }
-
-.navbar-brand { margin-left: 20px; }
-button.navbar-toggler { margin-right: 10px; }
-
-.home_2col { margin-bottom: 20px; }
-img.dibley { max-width: 100%; }
-
-/* ========== GRID PAGE ========== */
+/* ---------- Grid page: 4 → 3 → 1 columns ---------- */
 .wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
+  grid-auto-rows: minmax(80px, auto);
   gap: 10px;
   margin-top: 2rem;
 }
-.wrapper div {
+.wrapper > div {
   padding: 20px;
-  color: #000;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
-  border-radius: 5px;
-}
-.box1 { grid-column: 1 / 5; background-color: #a05252; }
-.box2 { grid-column: 1 / 2; grid-row: 2 / 4; background-color: #f6e5a0; }
-.box3 { grid-column: 2 / 5; background-color: #9ac7a2; }
-.box4 { grid-column: 2 / 3; background-color: #b0d5f9; }
-.box5 { grid-column: 3 / 5; background-color: #6a65d8; color: #fff; }
-.box6 { grid-column: 1 / 5; background-color: #e689d1; }
-
-/* ========== CAROUSEL PAGE ========== */
-
-/* Neutral backdrop (optional) */
-#portfolioCarousel { background: #000; }
-
-/* Hide non-active slides by default */
-.carousel-item {
-  display: none;
-  position: relative;
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  border-radius: 6px;
 }
 
-/* Only these are visible */
+/* your existing box colors keep working */
+.box1 { grid-column: 1 / 5; }
+.box2 { grid-column: 1 / 2; grid-row: span 2; }
+.box3 { grid-column: 2 / 5; }
+.box4 { grid-column: 2 / 3; }
+.box5 { grid-column: 3 / 5; }
+.box6 { grid-column: 1 / 5; }
+
+/* 4 → 3 columns on tablets */
+@media (max-width: 991.98px){
+  .wrapper { grid-template-columns: repeat(3, 1fr); }
+  .box1, .box6 { grid-column: 1 / -1; }
+  .box3 { grid-column: 2 / -1; }
+  .box5 { grid-column: 2 / -1; }
+}
+
+/* 3 → 1 column on phones */
+@media (max-width: 575.98px){
+  .wrapper { grid-template-columns: 1fr; }
+  .wrapper > div { grid-column: 1 / -1 !important; }
+}
+
+/* ---------- Carousel: 70vh frame + contain (no cropping) ---------- */
+#portfolioCarousel { background:#000; border-radius: .5rem; overflow: hidden; }
+
+/* hide non-active slides; show only active/transitioning */
+.carousel-item { display: none; position: relative; transition: transform .6s ease, opacity .6s ease; }
 .carousel-item.active,
 .carousel-item-next,
-.carousel-item-prev {
-  display: block; /* Bootstrap expects visible during transition */
-}
+.carousel-item-prev { display: block; }
 
-/* Frame height */
-#portfolioCarousel .carousel-item {
-  height: 70vh;                /* adjust 60–80vh if you want */
-}
-
-/* Center contents ONLY when visible */
+/* fixed frame height; center contents when visible */
+#portfolioCarousel .carousel-item { height: 70vh; }
 #portfolioCarousel .carousel-item.active,
 #portfolioCarousel .carousel-item-next,
 #portfolioCarousel .carousel-item-prev {
-  display: flex;               /* turn flex on for visible slides */
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
 
-/* Show the whole image; no cropping */
+/* show full image, never crop */
 #portfolioCarousel .carousel-item img {
   max-width: 100%;
   max-height: 100%;
@@ -93,22 +87,14 @@ img.dibley { max-width: 100%; }
   margin: 0 auto;
 }
 
-/* Caption below image */
+/* captions below image */
 .carousel-text-below {
-  text-align: center;
-  padding: 0.75rem 1rem;
-  background: #f8f9fa;
-  color: #000;
+  text-align: center; padding: .75rem 1rem; background: #f8f9fa; color:#000;
 }
 
-/* Arrow color (black instead of white) */
+/* darker arrow icons (white → black) */
 .carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(1) grayscale(100);
-}
+.carousel-control-next-icon { filter: invert(1) grayscale(100); }
 
-/* Keep main content narrow and centered */
-main.container-fluid { max-width: 820px; }
-
-/* Clear the floated image after the paragraph block */
-#content::after { content: ""; display: table; clear: both; }
+/* ---------- About page float clear ---------- */
+#content::after { content:""; display:block; clear: both; }
